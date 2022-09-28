@@ -1,0 +1,15 @@
+configmap:
+  enabled: true
+  nameOverride: null
+  mountPath: /opt/app/bootstrap.yaml
+  data:
+    bootstrap.yaml: |-
+      spring:
+        cloud:
+          vault:
+            enabled: false
+        datasource:
+          url: jdbc:mysql://mysql.default.svc.cluster.local:3306/db_example?createDatabaseIfNotExist=true
+          username: root
+          password: password
+          driver-class-name: com.mysql.cj.jdbc.Driver

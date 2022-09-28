@@ -1,0 +1,28 @@
+helmRepos:
+  bitnami: "https://charts.bitnami.com/bitnami"
+  hashicorp: "https://helm.releases.hashicorp.com"
+
+namespaces:
+  default:
+
+apps:
+  vault:
+    enabled: true
+    protected: true
+    namespace: "default"
+    chart: "hashicorp/vault"
+    version: "0.22.0"
+    setString:
+      "injector.enabled": false
+  mysql:
+    enabled: true
+    protected: true
+    namespace: "default"
+    chart: "bitnami/mysql"
+    version: "9.2.3"
+    valuesFile: ""
+    setString:
+      "auth.rootPassword": "password"
+      "auth.database": "test"
+      "auth.dbuser": "dbuser"
+      "auth.password": "password"

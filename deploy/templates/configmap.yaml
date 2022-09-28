@@ -1,0 +1,15 @@
+{{- if .Values.configmap.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "mysql-demo.fullname" . }}
+  labels:
+    {{- include "mysql-demo.labels" . | nindent 4 }}
+{{- if .Values.configmap.immutable }}
+immutable: true
+{{- end }}
+{{- if .Values.configmap.data }}
+data:
+  {{- toYaml .Values.configmap.data | nindent 2 }}
+{{- end }}
+{{- end }}

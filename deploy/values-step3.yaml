@@ -1,0 +1,33 @@
+configmap:
+  enabled: true
+  nameOverride: null
+  mountPath: /opt/app/bootstrap.yaml
+  data:
+    bootstrap.yaml: |-
+      spring:
+        cloud:
+          vault:
+            enabled: true
+            uri: http://vault.default.svc.cluster.local:8200
+            authentication: 'KUBERNETES'
+            kubernetes:
+              role: demo
+              kubernetes-path: kubernetes
+              service-account-token-file: /var/run/secrets/kubernetes.io/serviceaccount/token
+            kv:
+              backend: "kv"
+              enabled: true
+              profile-separator: "/"
+              #profiles: application
+            database:
+              enabled: true
+              role: my-role
+        datasource:
+          url: jdbc:mysql://mysql.default.svc.cluster.local:3306/db_example?createDatabaseIfNotExist=true
+          driver-class-name: com.mysql.cj.jdbc.Driver
+      
+        jpa:
+          hibernate:
+            ddl-auto: update
+          show-sql: true
+
