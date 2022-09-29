@@ -76,7 +76,7 @@ helm install mysql-demo deploy -f deploy/values-step3.yaml
 ## Application Usage
 Port forward to the app in the cluster
 ```bash
-kubectl port forward demo 8080
+kubectl port-forward mysql-demo-<add pod name> 8080
 ```
 
 exercise the endpoints
