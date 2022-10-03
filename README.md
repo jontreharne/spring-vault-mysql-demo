@@ -20,6 +20,7 @@
 - kubectl
 - [Helmsman](https://github.com/Praqma/helmsman#install)
 - maven
+- jq
 
 > **NOTE: If you already have vault installed you will need to reset your kube cluster in order to fully remove Vault**
 
