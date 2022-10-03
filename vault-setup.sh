@@ -31,7 +31,7 @@ echo " "
 echo "*******************************************************"
 echo "                 Installing Vault Ingress"
 echo "*******************************************************"
-kubectl apply -f ingress-route.yaml
+kubectl apply -f ingress_route.yaml
 
 echo " "
 echo "*******************************************************"
